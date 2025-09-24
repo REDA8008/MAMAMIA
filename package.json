@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "dotenv": "^17.2.2"
+    "dotenv": "^17.2.2",
+    "react-scripts": "^5.0.1"
   }
 }
