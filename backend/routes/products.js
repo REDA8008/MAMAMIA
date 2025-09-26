@@ -101,7 +101,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Update product
 router.put('/:id', async (req, res) => {
   try {
     const product = await Product.findByIdAndUpdate(
@@ -112,7 +111,15 @@ router.put('/:id', async (req, res) => {
     if (!product) {
       return res.status(404).json({ message: 'Product not found' });
     }
-    res.json(product);
+   // Transform response for consistency
+    const transformedProduct = {
+      id: product._id,
+      name: product.name,
+      price: product.price,
+      // ... other fields
+    };
+    
+    res.json(transformedProduct);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
