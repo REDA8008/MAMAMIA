@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+
 const productSchema = new mongoose.Schema({
-name: {
+  name: {
     type: String,
     required: true
   },
@@ -31,14 +32,17 @@ name: {
     required: true
   },
   imageType: {
-  imageType: {
     type: String,
     required: true,
     default: 'image/jpeg'
-  },    type: String,
-    required: true
+  },
+  description:{
+    type: String,
+    required: true,
   }
 }, {
   timestamps: true
 });
-module.exports = mongoose.model('Product', productSchema);
+
+// Specify the collection name as 'pills'
+module.exports = mongoose.model('Product', productSchema, 'pills');

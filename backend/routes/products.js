@@ -10,14 +10,19 @@ router.get('/', async (req, res) => {
     const transformedProducts = products.map(product => ({
       id: product._id,
       name: product.name,
-      price: product.price,
-      image: product.imageBase64, // Use base64 image
-      description: product.description,
-      category: product.type, // Map 'type' to 'category'
-      //subcategory: product.subcategory,
+      type: product.type,
       dosage: product.dosage,
-      //quantity: product.quantity,
+      quantity:product.quantity,
+      price: product.price,
       currency: product.currency,
+
+      image: product.imageBase64, 
+      description: product.description,
+      
+      //subcategory: product.subcategory,
+      
+      //quantity: product.quantity,
+      
       //inStock: product.inStock
     }));
     res.json(transformedProducts);
@@ -42,15 +47,13 @@ router.get('/category/:category', async (req, res) => {
     const transformedProducts = products.map(product => ({
       id: product._id,
       name: product.name,
-      price: product.price,
-      image: product.imageBase64,
-      description: product.description,
-      category: product.type,
-      subcategory: product.subcategory,
+      type: product.type,
       dosage: product.dosage,
-      quantity: product.quantity,
+      quantity:product.quantity,
+      price: product.price,
       currency: product.currency,
-      inStock: product.inStock
+      image: product.imageBase64, 
+      description: product.description,
     }));
     
     res.json(transformedProducts);
@@ -71,15 +74,14 @@ router.get('/:id', async (req, res) => {
     const transformedProduct = {
       id: product._id,
       name: product.name,
-      price: product.price,
-      image: product.imageBase64,
-      description: product.description,
-      category: product.type,
-      subcategory: product.subcategory,
+      type: product.type,
       dosage: product.dosage,
-      quantity: product.quantity,
+      quantity:product.quantity,
+      price: product.price,
       currency: product.currency,
-      inStock: product.inStock
+
+      image: product.imageBase64, 
+      description: product.description,
     };
     
     res.json(transformedProduct);
